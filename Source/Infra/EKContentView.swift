@@ -442,7 +442,7 @@ class EKContentView: UIView {
     
     // Perform animation - translate / scale / fade
     private func performAnimation(out: Bool, with animation: EKAnimation, preAction: @escaping () -> () = {}, action: @escaping () -> ()) {
-        let curve: UIView.AnimationOptions = out ? .curveEaseIn : .curveEaseOut
+        let curve: UIView.AnimationOptions = .curveEaseInOut
         let options: UIView.AnimationOptions = [curve, .beginFromCurrentState]
         preAction()
         if let spring = animation.spring {
