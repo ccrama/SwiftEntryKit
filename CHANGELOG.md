@@ -1,6 +1,55 @@
 # Change Log
 Any notable changes to this project will be documented in this file.
 
+## 1.2.1
+Expose `EKWindow` publicly as `UIWindow`.
+Add a warning for misuse of `EKAttributes.PopBehavior`.
+
+## 1.2.0
+Adjustment for iOS projects are are using `SwiftUI` as their default setup in their `plist`.
+
+
+## 1.1.4
+Fixes: #231 (iPad + iOS13) entries background is not interactable. 
+
+## 1.1.3
+Fix `SPM` release
+
+## 1.1.2
+Fix: `EKTextField` crashes once no `tintColor` is provided.  
+
+## 1.1.1
+iOS 13 color fix
+
+## 1.1.0
+
+### Support dark mode  (breaking change)
+Fully support dark mode pre iOS 13. New requirments were introduced:
+- `UIColor` was replaced with `EKColor` to allow specifying colors for light and dark modes.
+- `UIBlurEffect.Style` was replacd with `EKAttributes.BackgroundStyle.BlurStyle` to allow specifying visual effects for light and dark modes.
+- `EKAttributes` contains a new attribute named `displayMode: DisplayMode`. `displayMode` has the default value `.inferred`, which means that the display mode will be inferred from the user interface style. If the running iOS version is lower than 13, the display mode will be inferred as light mode.
+- All the presets support the new display mode by allowing to specify `displayMode` for their `EKProperty`
+
+The list of `EKProperty` constructs that contain `displayMode`: 
+- `ButtonContent` - button descriptor
+- `LabelStyle` - label style descriptor
+- `ImageContent` - image view descriptor
+- `TextFieldContent` - text field descriptor
+- `ButtonBarContent`  - button bar descriptor
+
+### Revamp coding style
+The project coding style was revamped to be more friendly and readable.
+
+## 1.0.4
+
+### Issues:
+- #191 - customized components support accessibility.
+
+## 1.0.2
+
+### Issues: 
+- #187 - ButtonBarContent` initialized with multiple buttons received as either variadic parameter or array.
+
 ## 1.0.1
 
 ### Bug Fixes:
